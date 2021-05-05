@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'LoginPage.dart';
+import 'SignUpPage.dart';
+import 'MaterialStateWidget.dart';
 
 void main() {
-  runApp(
-      MaterialApp(
+  runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
     home: HomePage(),
   ));
@@ -23,7 +25,6 @@ class HomePage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
-
             children: [
               Column(
                 children: [
@@ -34,11 +35,9 @@ class HomePage extends StatelessWidget {
                       fontSize: 30.0,
                     ),
                   ),
-
                   SizedBox(
                     height: 20.0,
                   ),
-
                   Text(
                     'I\'m Abhirama from Sringeri all I do is code, code and code.',
                     textAlign: TextAlign.center,
@@ -46,10 +45,9 @@ class HomePage extends StatelessWidget {
                       color: Colors.grey[700],
                       fontSize: 15.0,
                     ),
-                  )
+                  ),
                 ],
               ),
-
               Container(
                 height: MediaQuery.of(context).size.height / 3,
                 decoration: BoxDecoration(
@@ -57,9 +55,35 @@ class HomePage extends StatelessWidget {
                     image: AssetImage('assets/welcome.png'),
                   ),
                 ),
-
+              ),
+              Column(
+                children: [
+                  MaterialButtonWidget(
+                      textColor: Colors.black,
+                      buttonColor: Colors.white,
+                      onPressed: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
+                          return LoginPage();
+                        }));
+                      },
+                      buttonText: 'Log In'),
+                  SizedBox(
+                    height: 15.0,
+                  ),
+                  MaterialButtonWidget(
+                    textColor: Colors.white,
+                    buttonColor: Color(0xFF0095FF),
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                        return SignUpPage();
+                      }));
+                    },
+                    buttonText: 'Sign Up',
+                  ),
+                ],
               )
-
             ],
           ),
         ),
@@ -67,6 +91,3 @@ class HomePage extends StatelessWidget {
     );
   }
 }
-
-
-
